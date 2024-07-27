@@ -1,0 +1,48 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: bisque;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.weatherForm {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+.cityInput, .searchButton {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.container {
+    background-color: rgb(185, 119, 163);
+    margin: 5rem;
+    border-radius: 8%;
+    
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 1rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 3rem;
+        padding: 15px;
+    }
+}
