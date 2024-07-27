@@ -1,23 +1,14 @@
-const promise = new Promise((resolve, reject) => {
-    if (true) {
-        resolve('Stuff Worked');
-    } else { 
-        reject('Error, it broke');
-    }
+const weatherForm = document.querySelector(".weatherForm");
+const cityInput = document.querySelector(".cityInput");
+const card = document.querySelector(".card");
+const apiKey = "f650c3891c4c2457a7513e6f90b6309d";
+
+
+weatherForm.addEventListener("submit", event => {
+
 });
 
-promise
-    .then(result => result + '!')
-    .then(result2 => {
-        console.log(result2);
-    });
 
-//or
-
-const promise2 = new Promise((resolve, reject) => {
-    if (Math.random() > 0.5) {
-        resolve('Stuff Worked');
-    } else { 
-        reject('Error, it broke');
-    }
-});
+async function getWeatherData(data){
+    
+}
