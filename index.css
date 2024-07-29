@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(207, 196, 255);
+    background: url("background.jpg");
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ body {
     align-items: center;
     margin: 0;
     font-size: 18px;
-    background-color: rgba(105, 106, 150, 0.7);
+    background-color: rgba(235, 240, 241, 0.2);
     border-radius: 10px;
 }
 
@@ -63,7 +63,7 @@ button[type="submit"]{
     padding: 10px 20px;
     font-weight: bold;
     font-size: 2rem;
-    background-color:bisque;
+    background-color:rgb(251, 251, 249);
     border-radius: 10px;
 }
 
