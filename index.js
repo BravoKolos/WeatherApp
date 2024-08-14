@@ -37,52 +37,58 @@ function displayError(message){
     errorDisplay.classList.add("errorDisplay");
 
     card.textContent = "";
-    card.style.display = "flex";
     card.appendChild(errorDisplay);
     
 }
 
 function displayWeatherData(data){
 
-    //destructuring
     const {
         name: city,
         main: {temp, humidity},
-        weather: [{description, id}]} = data;
+        weather: [{description, icon}]} = data;
 
-        // creating elements for weather
         card.textContent = "";
-        card.style.display = "flex";
-        const cityDisplay = document.createElement("h1");
-        const tempDisplay = document.createElement("p");
-        const humidityDisplay = document.createElement("p");
-        const descDisplay = document.createElement("p");
-        const weatherEmoji = document.createElement("p");
 
-        // city name
-        cityDisplay.textContent = city;
-        card.appendChild(cityDisplay);
-        cityDisplay.classList.add("cityDisplay");
+        function displayCityName(city) {
+            const cityDisplay = document.createElement("h1");
+            cityDisplay.textContent = city;
+            cityDisplay.classList.add("cityDisplay");
+            card.appendChild(cityDisplay);
+        }
         
-        // current temp
-        tempDisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
-        tempDisplay.classList.add("tempDisplay");
-        card.appendChild(tempDisplay);
+        function displayTemperature(temp) {
+            const tempDisplay = document.createElement("p");
+            tempDisplay.textContent = `🌡${(temp - 273.15).toFixed(1)}°C`;
+            tempDisplay.classList.add("tempDisplay");
+            card.appendChild(tempDisplay);
+        }
 
+        function displayHumidity(humidity) {
+            const humidityDisplay = document.createElement("p");
+            humidityDisplay.textContent = " 💧 " + humidity + "%";
+            humidityDisplay.classList.add("humidityDisplay");
+            card.appendChild(humidityDisplay);
+        }
 
-        //humidity
-        humidityDisplay.textContent = "💦: " + humidity + "%";
-        card.appendChild(humidityDisplay);
-        humidityDisplay.classList.add("humidityDisplay");
+        function displayDescription(description) {
+            const descDisplay = document.createElement("p");
+            descDisplay.textContent = description;
+            descDisplay.classList.add("descDisplay");
+            card.appendChild(descDisplay);
+        }
 
-        //description
-        descDisplay.textContent = description;
-        card.appendChild(descDisplay);
-        descDisplay.classList.add("descDisplay");
-        
-        //temp id with Emoji
-        weatherEmoji.textContent = id;
-        card.appendChild(weatherEmoji);
-        weatherEmoji.classList.add("weatherEmoji");
+        function displayWeatherEmoji(icon) {
+            const weatherEmoji = document.createElement("img");
+            weatherEmoji.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+            weatherEmoji.classList.add("weatherEmoji");
+            card.appendChild(weatherEmoji);
+        }
+
+        displayCityName(city);
+        displayTemperature(temp);
+        displayHumidity(humidity);
+        displayDescription(description);
+        displayWeatherEmoji(icon);
 
 }
