@@ -97,12 +97,6 @@ body {
     padding: 15px;
 }
 
-.card p {
-    font-size: 18px;
-    color: #333;
-   
-}
-
 .card p.tempDisplay {
     font-size: 24px;
     color: #e67e22;
@@ -127,8 +121,9 @@ body {
 }
 
 .errorDisplay {
-    font-size: 18px;
+    font-size: 28px;
     color: #e74c3c;
+    padding: 5%;
 }
 
 .card.active {
