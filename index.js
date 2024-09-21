@@ -9,16 +9,26 @@ weatherForm.addEventListener("submit", async event => {
 
     const city = cityInput.value;
 
-    if (city){
+    if (city) {
+        try {
+            const weatherData = await getWeatherData(city, apiKey);
 
-        const weatherData = await getWeatherData(city, apiKey);
-        displayWeatherData(weatherData);
+            if (weatherData && weatherData.cod === "404") {
+                displayError("City not found. Please enter a valid location.");
+            } else if (weatherData) {
+                displayWeatherData(weatherData);
+            } else {
+                displayError("An unexpected error occurred.");
+            }
 
+        } catch (error) {
+            displayError("An error occurred while fetching weather data.");
+        }
     } else {
-
-        displayError("Oops...Please enter a valid location");
+        displayError("Oops...Please enter a city name.");
     }
 });
+
 
 async function getWeatherData(city, apiKey) {
     try {
