@@ -1,3 +1,10 @@
+/**
+ * querySelectors should be written based on id. The ID attribute is always unique
+ * so such queryselectors are more reliable, more stable. Otherwise,
+ * when you have a selector based on a class, there there's a risk that somebody
+ * adds another element with the same calss and your code would break
+ *
+  */
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
@@ -13,7 +20,11 @@ weatherForm.addEventListener("submit", async event => {
         try {
             const weatherData = await getWeatherData(city, apiKey);
 
-            if (weatherData && weatherData.cod === "404") {
+            /**
+             * You could shorten this condition as fallows
+             */
+            // if (weatherData && weatherData.cod === "404") {
+            if (weatherData?.weatherData?.cod === "404") {
                 displayError("City not found. Please enter a valid location.");
             } else if (weatherData) {
                 displayWeatherData(weatherData);
@@ -34,6 +45,11 @@ async function getWeatherData(city, apiKey) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
         const data = await response.json();
+
+        /**
+         * This console.log can be removed, it is only needed for debugging
+         */
+
         console.log(data);
         return data;
     } catch (error) {
@@ -60,7 +76,12 @@ function displayWeatherData(data){
 
         card.textContent = "";
 
-        function displayCityName(city) {
+    /**
+     * I can't see much sense in nesting the following functions inside displayWeatherData. I would take them out of it.
+     * This way the code will be more readable. First I read the main function and the names of the functions it calls, and then
+     * if necessary I can look into these functions
+     */
+    function displayCityName(city) {
             const cityDisplay = document.createElement("h1");
             cityDisplay.textContent = city;
             cityDisplay.classList.add("cityDisplay");
