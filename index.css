@@ -26,13 +26,13 @@ body {
     margin: 20px;
 }
 
-.weatherForm {
+#weatherForm {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.cityInput {
+#cityInput {
     width: 100%;
     padding: 15px;
     border-radius: 50px;
@@ -45,11 +45,11 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.cityInput::placeholder {
+#cityInput::placeholder {
     color: #999;
 }
 
-.cityInput:focus {
+#cityInput:focus {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -70,7 +70,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.card ::before{
+#card ::before{
     margin-top: 20px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.6);
@@ -81,7 +81,7 @@ body {
     display: none;
 }
 
-.card ::after{
+#card ::after{
         margin-top: 20px;
         padding: 20px;
         background: rgba(255, 255, 255, 0.6);
@@ -90,32 +90,32 @@ body {
         min-height: 150px;
 }
 
-.card h1.cityDisplay {
+#card h1.cityDisplay {
     font-size: 28px;
    
     color: #444;
     padding: 15px;
 }
 
-.card p.tempDisplay {
+#card p.tempDisplay {
     font-size: 24px;
     color: #d37019;
     padding: 0px;
 }
 
-.card p.humidityDisplay {
+#card p.humidityDisplay {
     font-size: 24px;
     color: #3498db;
     padding: 0px;
 }
 
-.card p.descDisplay {
+#card p.descDisplay {
     font-style: italic;
     color: #8e44ad;
     padding: 15px;
 }
 
-.card img.weatherEmoji {
+#card img.weatherEmoji {
     width: 100px;
     height: 100px;
 }
@@ -126,7 +126,7 @@ body {
     padding: 5%;
 }
 
-.card.active {
+#card.active {
     opacity: 1;
     transform: translateY(0);
 }
