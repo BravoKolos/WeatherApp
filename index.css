@@ -70,7 +70,8 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.card ::before{
+.card::before{
+
     margin-top: 20px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.6);
@@ -81,7 +82,7 @@ body {
     display: none;
 }
 
-.card ::after{
+.card::after{
         margin-top: 20px;
         padding: 20px;
         background: rgba(255, 255, 255, 0.6);
